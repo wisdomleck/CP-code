@@ -1,0 +1,104 @@
+c++ notes:
+
+vector<int> array;
+- can use .push_back(elem); to append
+- can use .insert(vector.begin(), x); to insert at front.
+	- first argument should be an iterator object to state 	position of insertion
+- vector.front() returns the front element
+- vector.back() returns the last element
+- vector.begin() returns iterator from first elem
+- vector.end() returns iterator from last elem + 1
+- vector.empty() returns if empty or not
+- vector.size() returns size
+- use [] to index vector
+- max_element(startptr, endptr) returns max element in array or vector. ptr is either pointer or iterator
+- can use accumulate(start, end, startsum) for int vectors
+- vector.resize(size, value);
+- vector.count(element); freq of element
+- count(vector.begin(), vector.end(), value); to find value in vector
+- vector.insert(position, value) or vector.insert(position,vector.begin(),vector2.end()) to insert a range of values from a different vector
+- can call vector<bool> arr(10); to specify length of the array. Can do  vector<vector<bool>> vis(H, vector<bool>(W)); to specify a HxW 2d array of bools. usually initialised as 0 for ints, bools?. Works as vector constructor takes vector(size, init vals);
+- can use reverse(vector.begin(), vector.end());
+- can use swap(s[1], s[2]) to swap elems in vector
+- IF INDEXING, MUST SPECIFY SIZE FIRST
+- s.substr(start, length);
+
+vector<int>::iterator ptr;
+- can use next(ptr) to return next pointer
+- can use prev(ptt) to return prev pointer
+- can use advance(ptr, x) to move iterator x steps forward
+- same functionality as pointers but more descriptive, small details are different. Can use x = -1 for backwards
+to delete first occurrence of element: 
+iterator = find(vector.begin(), vector.end(), value)
+vector.erase(iterator)
+to delete nth occurrence: need to iterate through array and keep counting
+
+strings:
+- same as char arrays(or vectors) with more functionality
+- can use same methods as vector
+- .length(), .size()
+- can use += to append to string
+- can use .insert(string.begin(), "xxxx") to insert at front
+
+std::tuple<int,int>:
+- can make a vector of tuples using:
+	- vector<tuple<int,int>> tuplearray;
+- in order to create a tuple using x, y, call:
+	- std::make_tuple(x,y);
+- to get tuple element
+	- get<index>(tuple);
+- Easier to use pair<int,int> for 2 valued tuples
+- Can use make_pair(x,y); or {}?
+- Or can make a tuple/pair using {elem1, elem2, ...}
+- can take max of a tuple - good for max of more than 2 values
+bool compare(pair<int,int> a, pair<int,int> b){
+    return a.second < b.second;
+}
+- pass compare into sort to sort by second element
+
+std::map<string,int>:
+- dictionary that maps elem1(string) to elem2(int)
+- if you want to get all keys or values, can use an iterator to go through everything. it->first for keys, it->second for values
+- use a f-or loop. start at mymap.begin(), end at mymap.end()
+- map.insert({key, value})
+- to get value to key can use map[key]
+- map.find(key) returns iterator to element if found, otherwise returns map.end(); Good way to check if key is in map:
+	- auto it = first_oc.find(x)
+	- if(it != first_oc.end())
+- can auto assign key values even if they dont exist
+
+set<type>:
+- container that contains a sorted set of unique keys
+- can't modify elements in set (try this)
+- most ordered containers are implemented using a bst
+- in order to convert a vector to a set - need to loop through and insert one by one
+- can use unordered_set to reduce complexity by logn. Only if we don't need to look up
+- set.count(elem) == 1 to find if element is present
+- set.find(elem); return pointer to first instance of element (not that useful)
+- set.insert(item)
+
+multiset<type>
+- essentially same as set. keeps order of items inserted
+- now can have duplicate values
+- interesting trick to pop max element in reverse set:
+	- x = *ms.rbegin();
+	- ms.erase(prev(ms.end()));
+	return x
+
+Multimap<int,int>
+if want to find all instances of key (as there can be multiple):
+	- auto result = s.equal_range(key);
+	- can use result.first and result.second to iterate over the keys
+	- distance(result.first, result.second) to find the number of keys
+
+stack<type>, queue<type>
+- can push or pop elements in the LIFO or FIFO manner
+- if want front queue element, take queue.front(), then pop
+- if want top stack element, take stack.top() then pop
+
+	
+ternary operator:
+(x==0?case1:case2)
+if x is 0? then case1. othewrise case2
+
+

@@ -1,0 +1,58 @@
+
+Competitive programming good notes:
+To read in a whole line with spaces:
+string s;
+getline(cin, s);
+
+while(cin >> input); for continuous input and unknown
+remember to cast ints to long long. dont need to use long long int
+compare doubles using eps = 1e-9
+if printing out decimal places, printf is preferred
+macros by using hash defines and typedefs could be potential in reducing code length
+
+input size gives a hint for the algorithmic complexity of the solution
+10 - n!
+20 - 2^n
+5000 - n^2
+10^6 - n or nlogn
+any larger - logn or 1
+
+kadanes: a max subarray at index k is either k by itself, or a subarray ending at k-1 + k. only add a subarray if it's helpful to the sum
+
+user defined structs should have a bool operator<() function defined if needs to be compared. or write a bool comp() function externally and pass that function into sort
+lower_bound returns first instance of elem in sorted arr. upper_bound returns first instance > elem
+can also think of binary search as an algorithm with different sized jumps
+
+bitset<10> - creates an array size 10 with only bits 0 or 1
+
+elements that occur in both arrays A and B. use a set for the larger array, iterate through the smaller set and use set.count. even better, can cut out logn time using an unordered set
+
+really interesting: two algorithms of O(nlogn) can run at drastically different times. The number of times that the n and logn parts of the algorithm matter here. (pg 55)
+
+can generate all subsets using bitshifts...? pg 48. Idea uses bit number representations which will choose the elements in the array. revise subsets and permutations
+ 
+Difficulty in greedy algorithms is to find a greedy strategy that always produces an optimal solution
+
+Scheduling task: always choose the next possible event that ends as early as possible
+Deadlines task: always sort in order of duration
+Minimising sums task: for |ai-x|^c, c = 1 choose median
+c = 2, choose average
+For string compression techniques, use bits. Huffman coding - look up. Algorithm of making a binary tree by first computing frequencies of each character. Then combines nodes into a parent node of total frequency. Then the bits are just represented by traversal of this tree. 0 for left, 1 for right
+
+Dynamic programming can be applied if the problem can be divided into overlapping subproblems that can be solved independently. Usually, we use dp to find an optimal solution, or a number of solutions
+
+DP: Can use array to store vlaues at every i, k combination, or just use each index of an array to represent information about when the sum or value = index;
+
+Two pointers method in finding subarray sum
+Two pointers method in finding 2SUM problem - given array find 2 values that add up to target value. First sort
+3SUM problem - same idea as 2SUM problem, but for every iteration, fix a number in the array then use two pointers? First sort. Or potentially instead of fixing a number, can just reform the equation to a + b = k - c
+
+Nearest smaller elements problem - can use a stack structure. if the element is larger than the top element in the structure, then has found a smaller element (nearest). then push that element to the stack. if encounter an element that is smaller than top element, keep popping until find an element at top that is smaller. then we have found the nearest smaller element and can push that element on.
+
+
+
+
+
+
+
+
